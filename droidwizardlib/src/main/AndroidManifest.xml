@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.prasilabs.droidwizardlib">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <activity android:name="com.prasilabs.droidwizardlib.modules.SorryCrashActivity"/>
+
+    </application>
+
+</manifest>
