@@ -4,13 +4,13 @@
 Kickstarter MVP framework for android projects
 
 # **Views**
-####_CoreFragment_ 
+#### _CoreFragment_ 
 Every Fragments should extend CoreFragment<CP extends CorePresenter> and implement respective callback 
 
-####_CoreActivity_ 
+#### _CoreActivity_ 
 Every Activity should extend CoreActivity<CP extends CorePresenter> and implement respective callback
 
-####_CoreAdapter_ 
+#### _CoreAdapter_ 
 Every RecyclerView Adapter should extend CoreAdapter<Item, ViewHolder>
 
 # **Presenters**
@@ -22,17 +22,17 @@ CoreCallBack>
 The interface that talks to view from presenter
 
 # **Model**
-####_CoreModelEngine_ 
+#### _CoreModelEngine_ 
 ModelEngines are the one that deals with data make api call and decide what to do with data 
 when to fetch from db and when to fetch from Server etc.
  
 ModelEngines are singleton class that runs in application context irrespective of state of your views
 
-#Example
+# Example
 Have a look at example app such as SimpleActivity and SimpleFragment that fetch data from stackoverflow website
 
 
-#Implementation
+# Implementation
 Step 1. Add the JitPack repository to your build file Build.gradle (app)
 
 ```
