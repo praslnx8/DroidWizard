@@ -16,4 +16,6 @@ public interface SimpleActivityCallBack extends CoreCallBack
     void showEmpty();
 
     void showNoInternet();
+
+    void showProgress();
 }

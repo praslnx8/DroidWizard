@@ -19,50 +19,61 @@ public class QuestionsModelEngine extends CoreModelEngine
 {
     private static final QuestionsModelEngine instance = new QuestionsModelEngine();
 
+    //For caching local data
+    private List<QuestionsPojo> cachedData = new ArrayList<>();
+
     public static QuestionsModelEngine getInstance() {
         return instance;
     }
 
     public void getQuestions(final GetQuestionsCallBack getQuestionsCallBack)
     {
-        String url = "https://api.stackexchange.com/2.2/questions?key=U4DMV*8nvpm3EOpvf69Rxw(" +
-                "(&site=stackoverflow&order=desc&sort=activity&filter=default";
-
-        makeVolleyCall(RequestType.GET, url, null, new ApiCallBack() {
-            @Override
-            public void result(String result) throws Exception
+        if (cachedData.size() > 0)
+        {
+            if(getQuestionsCallBack != null)
             {
-                JSONObject jsonObject = JsonUtil.createjsonobject(result);
-
-                JSONArray itemsArray = JsonUtil.checkHasArray(jsonObject, "items");
-
-                List<QuestionsPojo> questionsPojoList = new ArrayList<QuestionsPojo>();
-
-                for(int i=0; i<itemsArray.length(); i++)
-                {
-                    JSONObject questionObject = JsonUtil.getJSonObjectFromJsonArray(itemsArray, i);
-
-                    QuestionsPojo questionsPojo = JsonUtil.getObjectFromJson(questionObject, QuestionsPojo.class);
-
-                    questionsPojoList.add(questionsPojo);
-                }
-
-                if(getQuestionsCallBack != null)
-                {
-                    getQuestionsCallBack.getQuestions(questionsPojoList, null);
-                }
+                getQuestionsCallBack.getQuestions(cachedData, null);
             }
+        }
+        else
+        {
+            String url = "https://api.stackexchange.com/2.2/questions?key=U4DMV*8nvpm3EOpvf69Rxw((&site=stackoverflow&order=desc&sort=activity&filter=default";
 
-            @Override
-            public void error(ErrorCode errorCode)
-            {
 
-                if(getQuestionsCallBack != null)
-                {
-                    getQuestionsCallBack.getQuestions(null, errorCode);
+            makeVolleyCall(RequestType.GET, url, null, new ApiCallBack() {
+                @Override
+                public void result(String result) throws Exception {
+                    JSONObject jsonObject = JsonUtil.createjsonobject(result);
+
+                    JSONArray itemsArray = JsonUtil.checkHasArray(jsonObject, "items");
+
+                    List<QuestionsPojo> questionsPojoList = new ArrayList<QuestionsPojo>();
+
+                    for (int i = 0; i < itemsArray.length(); i++) {
+                        JSONObject questionObject = JsonUtil.getJSonObjectFromJsonArray(itemsArray, i);
+
+                        QuestionsPojo questionsPojo = JsonUtil.getObjectFromJson(questionObject, QuestionsPojo.class);
+
+                        questionsPojoList.add(questionsPojo);
+                    }
+
+                    cachedData.clear();
+                    cachedData.addAll(questionsPojoList);
+                    if (getQuestionsCallBack != null)
+                    {
+                        getQuestionsCallBack.getQuestions(questionsPojoList, null);
+                    }
                 }
-            }
-        });
+
+                @Override
+                public void error(ErrorCode errorCode) {
+
+                    if (getQuestionsCallBack != null) {
+                        getQuestionsCallBack.getQuestions(null, errorCode);
+                    }
+                }
+            });
+        }
     }
 
     public interface GetQuestionsCallBack

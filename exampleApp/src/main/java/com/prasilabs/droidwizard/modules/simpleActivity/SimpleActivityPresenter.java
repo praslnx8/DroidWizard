@@ -29,13 +29,17 @@ public class SimpleActivityPresenter extends CorePresenter<SimpleActivityCallBac
 
     public void getQuestions()
     {
+        if(getCoreCallBack() != null)
+        {
+            getCoreCallBack().showProgress();
+        }
         if(NetworkManager.isConnected(getContext()))
         {
             QuestionsModelEngine.getInstance().getQuestions(new QuestionsModelEngine.GetQuestionsCallBack() {
                 @Override
                 public void getQuestions(List<QuestionsPojo> questions, ErrorCode errorCode)
                 {
-                    if(questions != null && questions.isEmpty())
+                    if(questions != null && !questions.isEmpty())
                     {
                         if(getCoreCallBack() != null)
                         {
