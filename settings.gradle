@@ -1,1 +1,1 @@
-include ':app', ':droidwizardlib'
+include ':exampleApp', ':droidwizardlib'

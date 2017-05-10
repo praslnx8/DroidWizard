@@ -20,80 +20,36 @@ import java.util.Map;
 /**
  * Created by prasi on 27/5/16.
  */
-public abstract class CoreModelEngine
+public class CoreModelEngine
 {
+
+    protected CoreModelEngine(){}
+
+    protected enum RequestType
+    {
+        GET(VolleySingleton.GET),
+        POST(VolleySingleton.POST),
+        PUT(VolleySingleton.PUT);
+
+        private int type;
+
+        RequestType(int type)
+        {
+            this.type = type;
+        }
+
+        private int getType()
+        {
+            return type;
+        }
+    }
+
     private static final String TAG = CoreModelEngine.class.getSimpleName();
+
 
     protected <T> void asyncApiCall(final AsyncCallBack asyncCallBack)
     {
         asyncApiCall(asyncCallBack, false);
-    }
-
-    protected void makeTraccarVolleyCall(int mode, String url, Map<String, String> mParams, final ApiCallBack apiCallBack)
-    {
-        VolleySingleton.VolleyCallBack volleyCallBack =  new VolleySingleton.VolleyCallBack() {
-            @Override
-            public void result(String result)
-            {
-                if (apiCallBack != null)
-                {
-                    try
-                    {
-                        apiCallBack.result(result);
-                    }
-                    catch (Exception e)
-                    {
-                        ConsoleLog.e(e);
-                        apiCallBack.error(ErrorCode.GENERAL);
-                    }
-                }
-            }
-
-            @Override
-            public void error(ErrorCode errorCode) {
-                if (apiCallBack != null) {
-                    apiCallBack.error(errorCode);
-                }
-            }
-        };
-
-        Map<String, String> headers = getBasicAuthHeader("praslnx8@gmail.com", "prasi123");
-
-        VolleySingleton.getInstance().makeStringRequest(mode, url, headers, mParams,volleyCallBack);
-    }
-
-    protected void makeTraccarVolleyCall(String url, JSONObject jsonObject, final ApiCallBack apiCallBack)
-    {
-        VolleySingleton.VolleyCallBack volleyCallBack =  new VolleySingleton.VolleyCallBack() {
-            @Override
-            public void result(String result)
-            {
-                if (apiCallBack != null)
-                {
-                    try
-                    {
-                        apiCallBack.result(result);
-                    }
-                    catch (Exception e)
-                    {
-                        ConsoleLog.e(e);
-                        apiCallBack.error(ErrorCode.GENERAL);
-                    }
-                }
-            }
-
-            @Override
-            public void error(ErrorCode errorCode) {
-                if (apiCallBack != null) {
-                    apiCallBack.error(errorCode);
-                }
-            }
-        };
-
-        Map<String, String> headers = getBasicAuthHeader("praslnx8@gmail.com", "prasi123");
-
-
-        VolleySingleton.getInstance().makeStringRequest(url, jsonObject, headers, volleyCallBack);
     }
 
     protected void makeVolleyCall(String url, JSONObject jsonObject, final ApiCallBack apiCallBack)
@@ -131,7 +87,8 @@ public abstract class CoreModelEngine
         VolleySingleton.getInstance().makeStringRequest(url, jsonObject, headers, volleyCallBack);
     }
 
-    protected void makeVolleyCall(int mode, String url, Map<String, String> mParams, final ApiCallBack apiCallBack)
+    protected void makeVolleyCall(RequestType requestType, String url, Map<String, String> mParams, final ApiCallBack
+            apiCallBack)
     {
         VolleySingleton.VolleyCallBack volleyCallBack =  new VolleySingleton.VolleyCallBack() {
             @Override
@@ -162,7 +119,7 @@ public abstract class CoreModelEngine
         Map<String, String> headers = new ArrayMap<>();
         //TODO headers.put(CommonConstant.HASHAUTHHEADER, FUserManager.getUserHash(CoreApp.getAppContext()));
 
-        VolleySingleton.getInstance().makeStringRequest(mode, url, headers, mParams,volleyCallBack);
+        VolleySingleton.getInstance().makeStringRequest(requestType.getType(), url, headers, mParams,volleyCallBack);
     }
 
     private static Map<String, String> getBasicAuthHeader(String username, String password)

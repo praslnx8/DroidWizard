@@ -16,6 +16,8 @@ public class CoreApp extends Application
 
     private static CoreApp mInstance;
 
+
+
     public static Context getAppContext()
     {
         return mInstance.getApplicationContext();
