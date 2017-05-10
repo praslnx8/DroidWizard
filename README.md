@@ -45,7 +45,7 @@ Step 2. Add the dependency
 
 ```
 	dependencies {
-		compile 'com.github.User:Repo:Tag'
+	        compile 'com.github.praslnx8:DroidWizard:beta'
 	}
 ```
 
