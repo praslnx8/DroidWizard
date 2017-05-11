@@ -3,6 +3,8 @@
 
 Kickstarter MVP framework for android projects
 
+We appreciate developers to be part of the active development community for the DroidWizard framework
+
 # **Views**
 #### _CoreFragment_ 
 Every Fragments should extend CoreFragment<CP extends CorePresenter> and implement respective callback 
