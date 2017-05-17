@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DroidWizard.iml" filepath="$PROJECT_DIR$/DroidWizard.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DroidWizard.iml" filepath="$PROJECT_DIR$/DroidWizard.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/droidwizardlib/droidwizardlib.iml" filepath="$PROJECT_DIR$/droidwizardlib/droidwizardlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/droidwizardlib/droidwizardlib.iml" filepath="$PROJECT_DIR$/droidwizardlib/droidwizardlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/exampleApp/exampleApp.iml" filepath="$PROJECT_DIR$/exampleApp/exampleApp.iml" />
     </modules>

@@ -12,11 +12,9 @@ import com.prasilabs.droidwizardlib.BuildConfig;
 public class CoreApp extends Application
 {
     public static final String TAG = CoreApp.class.getSimpleName();
-    public static boolean appDebug = BuildConfig.DEBUG;
+    public static boolean appDebug = true; //BuildConfig.DEBUG;
 
     private static CoreApp mInstance;
-
-
 
     public static Context getAppContext()
     {

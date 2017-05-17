@@ -28,7 +28,7 @@ public class QuestionsModelEngine extends CoreModelEngine
 
     public void getQuestions(final GetQuestionsCallBack getQuestionsCallBack)
     {
-        if (cachedData.size() > 0)
+        if (!cachedData.isEmpty())
         {
             if(getQuestionsCallBack != null)
             {
@@ -47,7 +47,7 @@ public class QuestionsModelEngine extends CoreModelEngine
 
                     JSONArray itemsArray = JsonUtil.checkHasArray(jsonObject, "items");
 
-                    List<QuestionsPojo> questionsPojoList = new ArrayList<QuestionsPojo>();
+                    List<QuestionsPojo> questionsPojoList = new ArrayList<>();
 
                     for (int i = 0; i < itemsArray.length(); i++) {
                         JSONObject questionObject = JsonUtil.getJSonObjectFromJsonArray(itemsArray, i);
