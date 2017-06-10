@@ -9,11 +9,8 @@ import com.prasilabs.droidwizardlib.BuildConfig;
 /**
  * CoreApp. The starting point of android app
  */
-public class CoreApp extends Application
+public abstract class CoreApp extends Application
 {
-    public static final String TAG = CoreApp.class.getSimpleName();
-    public static boolean appDebug = true; //BuildConfig.DEBUG;
-
     private static CoreApp mInstance;
 
     public static Context getAppContext()
@@ -23,12 +20,6 @@ public class CoreApp extends Application
 
     public static synchronized CoreApp getInstance() {
         return mInstance;
-    }
-
-    public static String getDeviceId()
-    {
-        String android_id = Settings.Secure.getString(CoreApp.getAppContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-        return android_id;
     }
 
     @Override

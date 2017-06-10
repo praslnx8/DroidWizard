@@ -12,6 +12,7 @@ public class QuestionsPojo
     private Integer score;
     private Integer answer_count;
     private Integer view_count;
+    private Owner owner;
 
     public Long getQuestion_id() {
         return question_id;
@@ -59,5 +60,43 @@ public class QuestionsPojo
 
     public void setView_count(Integer view_count) {
         this.view_count = view_count;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    public static class Owner {
+        private int user_id;
+        private String display_name;
+        private String profile_image;
+
+        public int getUser_id() {
+            return user_id;
+        }
+
+        public void setUser_id(int user_id) {
+            this.user_id = user_id;
+        }
+
+        public String getDisplay_name() {
+            return display_name;
+        }
+
+        public void setDisplay_name(String display_name) {
+            this.display_name = display_name;
+        }
+
+        public String getProfile_image() {
+            return profile_image;
+        }
+
+        public void setProfile_image(String profile_image) {
+            this.profile_image = profile_image;
+        }
     }
 }

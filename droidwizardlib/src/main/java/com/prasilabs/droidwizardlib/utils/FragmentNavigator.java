@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.prasilabs.droidwizardlib.R;
-import com.prasilabs.droidwizardlib.core.CoreActivity;
-import com.prasilabs.droidwizardlib.core.CoreFragment;
+import com.prasilabs.droidwizardlib.core.views.CoreActivity;
+import com.prasilabs.droidwizardlib.core.views.CoreFragment;
 
 import java.util.List;
 

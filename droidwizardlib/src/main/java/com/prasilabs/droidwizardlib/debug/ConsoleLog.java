@@ -14,9 +14,15 @@ import java.util.logging.Logger;
  */
 public class ConsoleLog
 {
+    private static boolean isDebugMode;
+
+    public static void setDebugMode(boolean isDebug) {
+        isDebugMode = isDebug;
+    }
+
     public static void i(String tag, String message)
     {
-        if(CoreApp.appDebug)
+        if(isDebugMode)
         {
             if(TextUtils.isEmpty(message))
             {
@@ -29,7 +35,7 @@ public class ConsoleLog
 
     public static void w(String tag, String message)
     {
-        if(CoreApp.appDebug)
+        if(isDebugMode)
         {
             if(TextUtils.isEmpty(message))
             {
@@ -42,7 +48,7 @@ public class ConsoleLog
 
     public static void s(String tag, String message)
     {
-        if(CoreApp.appDebug)
+        if(isDebugMode)
         {
             if(TextUtils.isEmpty(message))
             {
@@ -55,14 +61,14 @@ public class ConsoleLog
 
     public static void t(Throwable throwable)
     {
-        if(CoreApp.appDebug)
+        if(isDebugMode)
         {
             throwable.printStackTrace();
         }
     }
     public static void e(Exception e)
     {
-        if(CoreApp.appDebug)
+        if(isDebugMode)
         {
             StringWriter errors = new StringWriter();
             e.printStackTrace(new PrintWriter(errors));
