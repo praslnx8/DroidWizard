@@ -43,7 +43,7 @@ Step 1. Add the JitPack repository to your build file Build.gradle (app)
 Step 2. Add the dependency
 ```
 dependencies {
-	compile 'com.github.praslnx8:DroidWizard:beta'
+	compile 'com.github.praslnx8:DroidWizard:0.2'
 }
 ```
 
