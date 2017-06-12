@@ -59,9 +59,14 @@ public abstract class CoreFragment<T extends CorePresenter> extends Fragment
 
         corePresenter.setCoreCallBack(getCoreCallBack());
 
-        initializeView(savedInstanceState);
-
         return getFragmentView();
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        initializeView(savedInstanceState);
     }
 
     protected abstract void initializeView(Bundle savedInstanceState);

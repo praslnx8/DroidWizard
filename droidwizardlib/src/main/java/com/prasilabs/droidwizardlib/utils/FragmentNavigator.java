@@ -12,8 +12,9 @@ import java.util.List;
 
 
 /**
- * Created by prasi on 7/2/16.
- * Helper for navigating fragment or replacing fragment
+ * Boilerplate code for fragment navigation in activity
+ * @author Prasanna Anbazhagan <praslnx8@gmail.com>
+ * @version 1.0
  */
 public class FragmentNavigator
 {

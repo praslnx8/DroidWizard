@@ -9,7 +9,9 @@ import com.prasilabs.droidwizardlib.debug.ConsoleLog;
 import java.util.ArrayList;
 
 /**
- * Created by prasi on 7/2/16.
+ * Bouiler plate code for sharing app preference data
+ * @author Prasanna Anbazhagan <praslnx8@gmail.com>
+ * @version 1.0
  */
 public class LocalPreference
 {
@@ -18,7 +20,7 @@ public class LocalPreference
     private static final String SESSION_DATA = "session_data";
     private static final String PERSISTENT_DATA = "persistent_data";
 
-    public static void saveLoginDataInShared(Context context, String field, String values)
+    public static void saveUserDataInShared(Context context, String field, String values)
     {
         try
         {
@@ -33,7 +35,7 @@ public class LocalPreference
         }
     }
 
-    public static String getLoginDataFromShared(Context context, String field, String defaultValue)
+    public static String getUserDataFromShared(Context context, String field, String defaultValue)
     {
         try
         {
@@ -47,40 +49,40 @@ public class LocalPreference
         }
     }
 
-    public static void saveLoginDataInShared(Context context, String field, boolean values)
+    public static void saveUserDataInShared(Context context, String field, boolean values)
     {
-        saveLoginDataInShared(context, field, String.valueOf(values));
+        saveUserDataInShared(context, field, String.valueOf(values));
     }
 
-    public static void saveLoginDataInShared(Context context, String field, double values)
+    public static void saveUserDataInShared(Context context, String field, double values)
     {
-        saveLoginDataInShared(context, field, String.valueOf(values));
+        saveUserDataInShared(context, field, String.valueOf(values));
     }
 
-    public static void saveLoginDataInShared(Context context, String field, int values)
+    public static void saveUserDataInShared(Context context, String field, int values)
     {
-        saveLoginDataInShared(context, field, String.valueOf(values));
+        saveUserDataInShared(context, field, String.valueOf(values));
     }
 
-    public static void saveLoginDataInShared(Context context, String field, long values)
+    public static void saveUserDataInShared(Context context, String field, long values)
     {
-        saveLoginDataInShared(context, field, String.valueOf(values));
+        saveUserDataInShared(context, field, String.valueOf(values));
     }
 
-    public static void saveSessionDataInShared(Context context, String field, ArrayList<String> value)
+    public static void saveUserDataInShared(Context context, String field, ArrayList<String> value)
     {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < value.size(); i++) {
             sb.append(value.get(i)).append(",");
         }
 
-        saveLoginDataInShared(context, field, sb.toString());
+        saveUserDataInShared(context, field, sb.toString());
     }
 
 
-    public static boolean getLoginDataFromShared(Context context, String field, boolean defaultValue)
+    public static boolean getUserDataFromShared(Context context, String field, boolean defaultValue)
     {
-        String value = getLoginDataFromShared(context, field, "");
+        String value = getUserDataFromShared(context, field, "");
 
         if(!TextUtils.isEmpty(value)) {
             try {
@@ -91,9 +93,9 @@ public class LocalPreference
         return defaultValue;
     }
 
-    public static long getLoginDataFromShared(Context context, String field, long defaultValue)
+    public static long getUserDataFromShared(Context context, String field, long defaultValue)
     {
-        String value = getLoginDataFromShared(context, field, "");
+        String value = getUserDataFromShared(context, field, "");
         if(!TextUtils.isEmpty(value)) {
             try {
                 defaultValue = Long.parseLong(value);
@@ -103,9 +105,9 @@ public class LocalPreference
         return defaultValue;
     }
 
-    public static int getLoginDataFromShared(Context context, String field, int defaultValue)
+    public static int getUserDataFromShared(Context context, String field, int defaultValue)
     {
-        String value = getLoginDataFromShared(context, field, "");
+        String value = getUserDataFromShared(context, field, "");
         if(!TextUtils.isEmpty(value)) {
             try {
                 defaultValue = Integer.parseInt(value);
@@ -115,9 +117,9 @@ public class LocalPreference
         return defaultValue;
     }
 
-    public static double getLoginDataFromShared(Context context, String field, double defaultValue)
+    public static double getUserDataFromShared(Context context, String field, double defaultValue)
     {
-        String value = getLoginDataFromShared(context, field, "");
+        String value = getUserDataFromShared(context, field, "");
         if(!TextUtils.isEmpty(value)) {
             try {
                 defaultValue = Double.parseDouble(value);
@@ -127,10 +129,10 @@ public class LocalPreference
         return defaultValue;
     }
 
-    public static ArrayList<String> getSessionStringArrayData(Context context, String field, String defaultValue)
+    public static ArrayList<String> getUserStringArrayData(Context context, String field, String defaultValue)
     {
         ArrayList<String> arrayList = new ArrayList<>();
-        String arrayDataString = getLoginDataFromShared(context, field, defaultValue);
+        String arrayDataString = getUserDataFromShared(context, field, defaultValue);
 
         if(!TextUtils.isEmpty(arrayDataString))
         {
@@ -144,7 +146,7 @@ public class LocalPreference
     }
 
 
-    public static void clearLoginSharedPreferences(Context context)
+    public static void clearUserSharedPreferences(Context context)
     {
         ConsoleLog.i(TAG, "Cleared login");
         SharedPreferences lp = context.getSharedPreferences(SESSION_DATA, Context.MODE_PRIVATE);
@@ -269,49 +271,4 @@ public class LocalPreference
         SharedPreferences lp = context.getSharedPreferences(PERSISTENT_DATA, Context.MODE_PRIVATE);
         lp.edit().clear().apply();
     }
-
-    //App data ends
-
-
-    //Location data starts
-    /*public static void storeLocation(Context context, LatLng location, String key)
-    {
-
-        SharedPreferences prefs = context.getSharedPreferences(SESSION_DATA, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-
-        if (location != null)
-        {
-            ConsoleLog.i(TAG, "Saving location is lat: " + location.latitude + " lon : " + location.longitude);
-
-            editor.putLong(key + "LAT", Double.doubleToRawLongBits(location.latitude));
-            editor.putLong(key + "LON", Double.doubleToRawLongBits(location.longitude));
-            editor.apply();
-        }
-    }
-
-    public static LatLng getLocationFromPrefs(Context context, String key)
-    {
-        SharedPreferences prefs = context.getSharedPreferences(SESSION_DATA, Context.MODE_PRIVATE);
-        Long lat = prefs.getLong(key + "LAT", Long.MAX_VALUE);
-        Long lng = prefs.getLong(key + "LON", Long.MAX_VALUE);
-        LatLng latLng = computeLatLng(lat, lng);
-        if (latLng == null)
-        {
-            ConsoleLog.i(TAG, "latlng is null for key " + key);
-        }
-        return latLng;
-    }
-
-    private static LatLng computeLatLng(Long lat, Long lng)
-    {
-        if ((lat != Long.MAX_VALUE && lng != Long.MAX_VALUE) && (lat != 0 && lng != 0))
-        {
-            Double latDbl = Double.longBitsToDouble(lat);
-            Double lngDbl = Double.longBitsToDouble(lng);
-            return new LatLng(latDbl, lngDbl);
-        }
-        return null;
-    }*/
-
 }

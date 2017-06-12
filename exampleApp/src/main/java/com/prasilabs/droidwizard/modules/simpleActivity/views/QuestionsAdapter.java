@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 /**
- * Created by Contus team on 10/5/17.
+ * Created by Prasanna Anbazhagan on 10/5/17.
  */
 
 public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.QuestionsViewHolder>
@@ -31,7 +31,7 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.Ques
 
     @Override
     public QuestionsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_question, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_question, parent, false);
         return new QuestionsViewHolder(view);
     }
 

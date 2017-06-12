@@ -10,7 +10,10 @@ import java.io.StringWriter;
 import java.util.logging.Logger;
 
 /**
- * Created by prasi on 11/3/16.
+ * Debug tool
+ *
+ * @author Prasanna Anbazhagan <praslnx8@gmail.com>
+ * @version 1.0
  */
 public class ConsoleLog
 {
