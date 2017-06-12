@@ -33,22 +33,18 @@ ModelEngines are singleton class that runs in application context irrespective o
 # Example
 Have a look at example app such as SimpleActivity and SimpleFragment that fetch data from stackoverflow website
 
-
 # Implementation
 Step 1. Add the JitPack repository to your build file Build.gradle (app)
-
 ```
  repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+	maven { url 'https://jitpack.io' }
+}
 ```
 Step 2. Add the dependency
-
 ```
-	dependencies {
-	        compile 'com.github.praslnx8:DroidWizard:beta'
-	}
+dependencies {
+	compile 'com.github.praslnx8:DroidWizard:beta'
+}
 ```
 
 **Enjoy!**
