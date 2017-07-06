@@ -1,7 +1,8 @@
 # DroidWizard
 [![](https://jitpack.io/v/praslnx8/DroidWizard.svg)](https://jitpack.io/#praslnx8/DroidWizard)
 
-Kickstarter MVP framework for android projects
+Kickstarter framework for android projects.
+This framework might resemble MVVM but actually his is a standalone framework for android projects.
 
 We appreciate developers to be part of the active development community for the DroidWizard framework
 
@@ -15,9 +16,9 @@ Every Activity should extend CoreActivity<CP extends CorePresenter> and implemen
 #### _CoreAdapter_ 
 Every RecyclerView Adapter should extend CoreAdapter<Item, ViewHolder>
 
-# **Presenters**
+# **Presenters(Not to be confused with MVP)**
 #### _CorePresenter_ 
-Every Views listed above should attached to a presenter that extends CorePresenter<CB extends 
+(Similar to ViewModel in MVVM) Every Views listed above should attached to a presenter that extends CorePresenter<CB extends 
 CoreCallBack>
 
 #### _CoreCallBack_ 
