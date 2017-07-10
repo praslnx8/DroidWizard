@@ -12,8 +12,11 @@ import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.prasilabs.droidwizardlib.core.CoreApp;
+import com.prasilabs.droidwizardlib.core.views.CoreActivityView;
+import com.prasilabs.droidwizardlib.core.views.CoreFragmentView;
 import com.prasilabs.droidwizardlib.debug.ConsoleLog;
 
+import java.util.Observer;
 
 /**
  * Base presenter class
@@ -27,9 +30,9 @@ import com.prasilabs.droidwizardlib.debug.ConsoleLog;
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
  */
-public abstract class CorePresenter<T extends CoreCallBack>
+public abstract class CoreModelView<T extends CoreCallBack> implements Observer
 {
-    private static final String TAG = CorePresenter.class.getSimpleName();
+    private static final String TAG = CoreModelView.class.getSimpleName();
     private BroadcastReceiver broadcastReceiver;
     private Context context;
     private T coreCallBack;
@@ -37,12 +40,12 @@ public abstract class CorePresenter<T extends CoreCallBack>
     /**
      * Public default constructor
      */
-    public CorePresenter() {
+    public CoreModelView() {
     }
 
     /**
      * onCreate() lifecycle of presenter. attached to views like
-     * {@link com.prasilabs.droidwizardlib.core.views.CoreFragment}, {@link com.prasilabs.droidwizardlib.core.views.CoreActivity}
+     * {@link CoreFragmentView}, {@link CoreActivityView}
      *
      * Broadcast will be register in the onCreate() and destroyed at onDestroy()
      *

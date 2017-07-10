@@ -11,18 +11,18 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
-import com.prasilabs.droidwizardlib.core.presenters.CorePresenter;
+import com.prasilabs.droidwizardlib.core.presenters.CoreModelView;
 
 /**
  * Base Activity class
- * CoreActivity is the base class of activity with support for binding presenters and callback
+ * CoreActivityView is the base class of activity with support for binding presenters and callback
  *
  * T is the presenter that is being attached to activity
  *
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
  */
-public abstract class CoreActivity<T extends CorePresenter> extends AppCompatActivity
+public abstract class CoreActivityView<T extends CoreModelView> extends AppCompatActivity
 {
     private T corePresenter;
 
@@ -72,6 +72,7 @@ public abstract class CoreActivity<T extends CorePresenter> extends AppCompatAct
         {
             corePresenter.onDestroy();
         }
+        corePresenter = null;
     }
 
     protected T getPresenter()

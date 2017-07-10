@@ -2,7 +2,6 @@ package com.prasilabs.droidwizard.modules.simpleActivity.views;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,9 +9,9 @@ import android.widget.LinearLayout;
 
 import com.prasilabs.droidwizard.R;
 import com.prasilabs.droidwizard.modules.simpleActivity.presenters.SimpleActivityCallBack;
-import com.prasilabs.droidwizard.modules.simpleActivity.presenters.SimpleActivityPresenter;
+import com.prasilabs.droidwizard.modules.simpleActivity.presenters.SimpleActivityModelView;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
-import com.prasilabs.droidwizardlib.core.views.CoreActivity;
+import com.prasilabs.droidwizardlib.core.views.CoreActivityView;
 import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
 
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
  * Created by prasi on 9/5/17.
  */
 
-public class SimpleActivity extends CoreActivity<SimpleActivityPresenter> implements SimpleActivityCallBack
+public class SimpleActivityView extends CoreActivityView<SimpleActivityModelView> implements SimpleActivityCallBack
 {
     private QuestionsAdapter questionsAdapter = new QuestionsAdapter();
 
@@ -51,8 +50,8 @@ public class SimpleActivity extends CoreActivity<SimpleActivityPresenter> implem
     }
 
     @Override
-    protected SimpleActivityPresenter setCorePresenter() {
-        return new SimpleActivityPresenter();
+    protected SimpleActivityModelView setCorePresenter() {
+        return new SimpleActivityModelView();
     }
 
     @Override

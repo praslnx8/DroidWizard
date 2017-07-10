@@ -9,18 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
-import com.prasilabs.droidwizardlib.core.presenters.CorePresenter;
+import com.prasilabs.droidwizardlib.core.presenters.CoreModelView;
 import com.prasilabs.droidwizardlib.debug.ConsoleLog;
 
 /**
  * Created by prasi on 6/2/16.
  * All fragment should extend this class
  */
-public abstract class CoreFragment<T extends CorePresenter> extends Fragment
+public abstract class CoreFragmentView<T extends CoreModelView> extends Fragment
 {
     private View mFragmentView;
     private Context context;
-    private CoreActivity coreActivity;
+    private CoreActivityView coreActivityView;
     private T corePresenter;
 
 
@@ -87,20 +87,21 @@ public abstract class CoreFragment<T extends CorePresenter> extends Fragment
     @Override
     public void onDestroy() {
         super.onDestroy();
+        corePresenter = null;
     }
 
-    public CoreActivity getCoreActivity()
+    public CoreActivityView getCoreActivityView()
     {
-        if(coreActivity == null)
+        if(coreActivityView == null)
         {
             try {
-                coreActivity = (CoreActivity) getActivity();
+                coreActivityView = (CoreActivityView) getActivity();
             }catch (Exception e)
             {
                 ConsoleLog.e(e);
             }
         }
-        return coreActivity;
+        return coreActivityView;
     }
 
 
@@ -122,9 +123,9 @@ public abstract class CoreFragment<T extends CorePresenter> extends Fragment
 
         this.context = context;
 
-        if(context instanceof CoreActivity)
+        if(context instanceof CoreActivityView)
         {
-            this.coreActivity = (CoreActivity) context;
+            this.coreActivityView = (CoreActivityView) context;
         }
     }
 

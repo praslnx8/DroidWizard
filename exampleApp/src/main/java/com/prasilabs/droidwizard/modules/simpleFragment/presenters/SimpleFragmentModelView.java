@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import com.prasilabs.droidwizard.modelEngines.QuestionsModelEngine;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
-import com.prasilabs.droidwizardlib.core.presenters.CorePresenter;
+import com.prasilabs.droidwizardlib.core.presenters.CoreModelView;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * Created by prasi on 9/5/17.
  */
 
-public class SimpleFragmentPresenter extends CorePresenter<SimpleFragmentCallBack>
+public class SimpleFragmentModelView extends CoreModelView<SimpleFragmentCallBack>
 {
 
     @Override

@@ -8,15 +8,16 @@ import com.prasilabs.droidwizard.modelEngines.QuestionsModelEngine;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
 import com.prasilabs.droidwizard.utils.KeyConstants;
 import com.prasilabs.droidwizard.utils.NetworkManager;
-import com.prasilabs.droidwizardlib.core.presenters.CorePresenter;
+import com.prasilabs.droidwizardlib.core.presenters.CoreModelView;
 
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Created by prasi on 9/5/17.
  */
 
-public class SimpleActivityPresenter extends CorePresenter<SimpleActivityCallBack>
+public class SimpleActivityModelView extends CoreModelView<SimpleActivityCallBack>
 {
     @Override
     protected void onCreateCalled() {
@@ -66,6 +67,11 @@ public class SimpleActivityPresenter extends CorePresenter<SimpleActivityCallBac
                 getCoreCallBack().showNoInternet();
             }
         }
+
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
 
     }
 }

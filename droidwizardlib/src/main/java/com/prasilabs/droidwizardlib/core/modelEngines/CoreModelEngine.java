@@ -14,6 +14,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.prasilabs.droidwizardlib.core.CoreApp;
 import com.prasilabs.droidwizardlib.debug.ConsoleLog;
 
+import java.util.Observable;
+
 /**
  * CoreModelEngine.
  *
@@ -29,7 +31,7 @@ import com.prasilabs.droidwizardlib.debug.ConsoleLog;
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
  */
-public abstract class CoreModelEngine
+public abstract class CoreModelEngine extends Observable
 {
     protected CoreModelEngine(){}
 
