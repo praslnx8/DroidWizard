@@ -8,7 +8,7 @@ import com.prasilabs.droidwizard.modelEngines.QuestionsModelEngine;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
 import com.prasilabs.droidwizard.utils.KeyConstants;
 import com.prasilabs.droidwizard.utils.NetworkManager;
-import com.prasilabs.droidwizardlib.core.presenters.CoreModelView;
+import com.prasilabs.droidwizardlib.core.presenters.CoreViewModel;
 
 import java.util.List;
 import java.util.Observable;
@@ -17,7 +17,7 @@ import java.util.Observable;
  * Created by prasi on 9/5/17.
  */
 
-public class SimpleActivityModelView extends CoreModelView<SimpleActivityCallBack>
+public class SimpleActivityViewModel extends CoreViewModel<SimpleActivityCallBack>
 {
     @Override
     protected void onCreateCalled() {
@@ -67,11 +67,6 @@ public class SimpleActivityModelView extends CoreModelView<SimpleActivityCallBac
                 getCoreCallBack().showNoInternet();
             }
         }
-
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
 
     }
 }

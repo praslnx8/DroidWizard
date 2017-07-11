@@ -11,7 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
-import com.prasilabs.droidwizardlib.core.presenters.CoreModelView;
+import com.prasilabs.droidwizardlib.core.presenters.CoreViewModel;
 
 /**
  * Base Activity class
@@ -22,7 +22,7 @@ import com.prasilabs.droidwizardlib.core.presenters.CoreModelView;
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
  */
-public abstract class CoreActivityView<T extends CoreModelView> extends AppCompatActivity
+public abstract class CoreActivityView<T extends CoreViewModel> extends AppCompatActivity
 {
     private T corePresenter;
 

@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 
 import com.prasilabs.droidwizard.R;
 import com.prasilabs.droidwizard.modules.simpleActivity.presenters.SimpleActivityCallBack;
-import com.prasilabs.droidwizard.modules.simpleActivity.presenters.SimpleActivityModelView;
+import com.prasilabs.droidwizard.modules.simpleActivity.presenters.SimpleActivityViewModel;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
 import com.prasilabs.droidwizardlib.core.views.CoreActivityView;
 import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
@@ -20,7 +20,7 @@ import java.util.List;
  * Created by prasi on 9/5/17.
  */
 
-public class SimpleActivityView extends CoreActivityView<SimpleActivityModelView> implements SimpleActivityCallBack
+public class SimpleActivityView extends CoreActivityView<SimpleActivityViewModel> implements SimpleActivityCallBack
 {
     private QuestionsAdapter questionsAdapter = new QuestionsAdapter();
 
@@ -50,8 +50,8 @@ public class SimpleActivityView extends CoreActivityView<SimpleActivityModelView
     }
 
     @Override
-    protected SimpleActivityModelView setCorePresenter() {
-        return new SimpleActivityModelView();
+    protected SimpleActivityViewModel setCorePresenter() {
+        return new SimpleActivityViewModel();
     }
 
     @Override

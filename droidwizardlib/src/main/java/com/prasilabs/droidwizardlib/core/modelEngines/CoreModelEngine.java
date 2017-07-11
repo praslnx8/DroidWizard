@@ -31,7 +31,7 @@ import java.util.Observable;
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
  */
-public abstract class CoreModelEngine extends Observable
+public abstract class CoreModelEngine
 {
     protected CoreModelEngine(){}
 

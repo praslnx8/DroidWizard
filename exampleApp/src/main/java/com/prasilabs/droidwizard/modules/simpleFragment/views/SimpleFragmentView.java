@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.prasilabs.droidwizard.R;
 import com.prasilabs.droidwizard.modules.simpleActivity.views.QuestionsAdapter;
 import com.prasilabs.droidwizard.modules.simpleFragment.presenters.SimpleFragmentCallBack;
-import com.prasilabs.droidwizard.modules.simpleFragment.presenters.SimpleFragmentModelView;
+import com.prasilabs.droidwizard.modules.simpleFragment.presenters.SimpleFragmentViewModel;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
 import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
 import com.prasilabs.droidwizardlib.core.views.CoreFragmentView;
@@ -20,7 +20,7 @@ import java.util.List;
  * Created by prasi on 9/5/17.
  */
 
-public class SimpleFragmentView extends CoreFragmentView<SimpleFragmentModelView> implements SimpleFragmentCallBack
+public class SimpleFragmentView extends CoreFragmentView<SimpleFragmentViewModel> implements SimpleFragmentCallBack
 {
     private QuestionsAdapter questionsAdapter = new QuestionsAdapter();
 
@@ -28,8 +28,8 @@ public class SimpleFragmentView extends CoreFragmentView<SimpleFragmentModelView
     private LinearLayout emptyLayout;
 
     @Override
-    protected SimpleFragmentModelView setCorePresenter() {
-        return new SimpleFragmentModelView();
+    protected SimpleFragmentViewModel setCorePresenter() {
+        return new SimpleFragmentViewModel();
     }
 
     @Override

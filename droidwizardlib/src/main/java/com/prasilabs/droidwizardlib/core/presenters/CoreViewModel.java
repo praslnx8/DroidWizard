@@ -30,9 +30,9 @@ import java.util.Observer;
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
  */
-public abstract class CoreModelView<T extends CoreCallBack> implements Observer
+public abstract class CoreViewModel<T extends CoreCallBack>
 {
-    private static final String TAG = CoreModelView.class.getSimpleName();
+    private static final String TAG = CoreViewModel.class.getSimpleName();
     private BroadcastReceiver broadcastReceiver;
     private Context context;
     private T coreCallBack;
@@ -40,7 +40,7 @@ public abstract class CoreModelView<T extends CoreCallBack> implements Observer
     /**
      * Public default constructor
      */
-    public CoreModelView() {
+    public CoreViewModel() {
     }
 
     /**

@@ -9,14 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
-import com.prasilabs.droidwizardlib.core.presenters.CoreModelView;
+import com.prasilabs.droidwizardlib.core.presenters.CoreViewModel;
 import com.prasilabs.droidwizardlib.debug.ConsoleLog;
 
 /**
  * Created by prasi on 6/2/16.
  * All fragment should extend this class
  */
-public abstract class CoreFragmentView<T extends CoreModelView> extends Fragment
+public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
 {
     private View mFragmentView;
     private Context context;
