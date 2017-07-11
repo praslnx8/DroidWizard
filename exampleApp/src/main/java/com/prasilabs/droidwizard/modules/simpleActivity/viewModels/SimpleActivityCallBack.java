@@ -1,7 +1,7 @@
-package com.prasilabs.droidwizard.modules.simpleActivity.presenters;
+package com.prasilabs.droidwizard.modules.simpleActivity.viewModels;
 
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
-import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
+import com.prasilabs.droidwizardlib.core.viewModels.CoreCallBack;
 
 import java.util.List;
 

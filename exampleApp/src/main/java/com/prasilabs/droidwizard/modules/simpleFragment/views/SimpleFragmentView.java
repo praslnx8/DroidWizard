@@ -8,10 +8,10 @@ import android.widget.LinearLayout;
 
 import com.prasilabs.droidwizard.R;
 import com.prasilabs.droidwizard.modules.simpleActivity.views.QuestionsAdapter;
-import com.prasilabs.droidwizard.modules.simpleFragment.presenters.SimpleFragmentCallBack;
-import com.prasilabs.droidwizard.modules.simpleFragment.presenters.SimpleFragmentViewModel;
+import com.prasilabs.droidwizard.modules.simpleFragment.viewModels.SimpleFragmentCallBack;
+import com.prasilabs.droidwizard.modules.simpleFragment.viewModels.SimpleFragmentViewModel;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
-import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
+import com.prasilabs.droidwizardlib.core.viewModels.CoreCallBack;
 import com.prasilabs.droidwizardlib.core.views.CoreFragmentView;
 
 import java.util.List;

@@ -1,11 +1,11 @@
-package com.prasilabs.droidwizard.modules.simpleFragment.presenters;
+package com.prasilabs.droidwizard.modules.simpleFragment.viewModels;
 
 import android.content.Context;
 import android.content.Intent;
 
 import com.prasilabs.droidwizard.modelEngines.QuestionsModelEngine;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
-import com.prasilabs.droidwizardlib.core.presenters.CoreViewModel;
+import com.prasilabs.droidwizardlib.core.viewModels.CoreViewModel;
 
 import java.util.List;
 

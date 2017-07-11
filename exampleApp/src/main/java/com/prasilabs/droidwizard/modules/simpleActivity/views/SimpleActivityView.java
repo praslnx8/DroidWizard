@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.prasilabs.droidwizard.R;
-import com.prasilabs.droidwizard.modules.simpleActivity.presenters.SimpleActivityCallBack;
-import com.prasilabs.droidwizard.modules.simpleActivity.presenters.SimpleActivityViewModel;
+import com.prasilabs.droidwizard.modules.simpleActivity.viewModels.SimpleActivityCallBack;
+import com.prasilabs.droidwizard.modules.simpleActivity.viewModels.SimpleActivityViewModel;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
 import com.prasilabs.droidwizardlib.core.views.CoreActivityView;
-import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
+import com.prasilabs.droidwizardlib.core.viewModels.CoreCallBack;
 
 import java.util.List;
 

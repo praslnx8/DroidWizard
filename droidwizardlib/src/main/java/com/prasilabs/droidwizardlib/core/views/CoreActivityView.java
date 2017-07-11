@@ -10,8 +10,8 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
-import com.prasilabs.droidwizardlib.core.presenters.CoreViewModel;
+import com.prasilabs.droidwizardlib.core.viewModels.CoreCallBack;
+import com.prasilabs.droidwizardlib.core.viewModels.CoreViewModel;
 
 /**
  * Base Activity class

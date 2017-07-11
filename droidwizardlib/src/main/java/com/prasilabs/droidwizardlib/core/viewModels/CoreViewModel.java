@@ -3,7 +3,7 @@
  *  @copyright Copyright (C) 2017 Prasilabs. All rights reserved.
  *  @license http://www.apache.org/licenses/LICENSE-2.0
  */
-package com.prasilabs.droidwizardlib.core.presenters;
+package com.prasilabs.droidwizardlib.core.viewModels;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -15,8 +15,6 @@ import com.prasilabs.droidwizardlib.core.CoreApp;
 import com.prasilabs.droidwizardlib.core.views.CoreActivityView;
 import com.prasilabs.droidwizardlib.core.views.CoreFragmentView;
 import com.prasilabs.droidwizardlib.debug.ConsoleLog;
-
-import java.util.Observer;
 
 /**
  * Base presenter class

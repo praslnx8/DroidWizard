@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.prasilabs.droidwizardlib.core.presenters.CoreCallBack;
-import com.prasilabs.droidwizardlib.core.presenters.CoreViewModel;
+import com.prasilabs.droidwizardlib.core.viewModels.CoreCallBack;
+import com.prasilabs.droidwizardlib.core.viewModels.CoreViewModel;
 import com.prasilabs.droidwizardlib.debug.ConsoleLog;
 
 /**

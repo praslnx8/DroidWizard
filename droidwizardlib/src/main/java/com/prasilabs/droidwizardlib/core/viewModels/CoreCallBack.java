@@ -4,7 +4,7 @@
  *  @license http://www.apache.org/licenses/LICENSE-2.0
  */
 
-package com.prasilabs.droidwizardlib.core.presenters;
+package com.prasilabs.droidwizardlib.core.viewModels;
 
 
 /**Base interface for presenter to communicate back to view
