@@ -2,27 +2,26 @@
 [![](https://jitpack.io/v/praslnx8/DroidWizard.svg)](https://jitpack.io/#praslnx8/DroidWizard)
 
 Kickstarter framework for android projects.
-This framework might resemble MVVM but actually his is a standalone framework for android projects.
+This framework might resemble MVVM but actually this is a standalone framework for android projects.
 
 We appreciate developers to be part of the active development community for the DroidWizard framework
 
 # **Views**
-#### _CoreFragment_ 
-Every Fragments should extend CoreFragment<CP extends CorePresenter> and implement respective callback 
+#### _CoreFragmentView_ 
+Every Fragments should extend CoreFragmentView<CMV extends CoreModelView> and implement respective callback 
 
-#### _CoreActivity_ 
-Every Activity should extend CoreActivity<CP extends CorePresenter> and implement respective callback
+#### _CoreActivityView_ 
+Every Activity should extend CoreActivityView<CMV extends CoreModelView> and implement respective callback
 
 #### _CoreAdapter_ 
 Every RecyclerView Adapter should extend CoreAdapter<Item, ViewHolder>
 
-# **Presenters(Not to be confused with MVP)**
-#### _CorePresenter_ 
-(Similar to ViewModel in MVVM) Every Views listed above should attached to a presenter that extends CorePresenter<CB extends 
-CoreCallBack>
+# **ModelView**
+#### _CoreModelView_ 
+(Similar to ViewModel in MVVM) Every Views listed above should attached to a modelview that extends CoreModelView<CB extends CoreCallBack>
 
 #### _CoreCallBack_ 
-The interface that talks to view from presenter
+The interface that talks to view from model view
 
 # **Model**
 #### _CoreModelEngine_ 
