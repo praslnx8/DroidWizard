@@ -46,6 +46,6 @@ dependencies {
 	compile 'com.github.praslnx8:DroidWizard:0.5'
 }
 ```
-Check us at Medium[![](https://medium.com/@praslnx8/droidwizard-framework-for-android-45cabd1d7d5c)]
+Check us at [![Medium]](https://jitpack.io/#praslnx8/DroidWizard)
 
 **Enjoy!**
