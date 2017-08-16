@@ -41,6 +41,8 @@ public class SimpleFragmentView extends CoreFragmentView<SimpleFragmentViewModel
         recyclerView.setAdapter(questionsAdapter);
 
         getPresenter().getQuestions();
+
+        getPresenter().getQuestions();
     }
 
     @Override

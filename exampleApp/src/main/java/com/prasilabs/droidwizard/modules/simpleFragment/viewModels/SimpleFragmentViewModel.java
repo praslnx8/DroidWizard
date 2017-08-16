@@ -8,6 +8,7 @@ import com.prasilabs.droidwizard.pojos.QuestionsPojo;
 import com.prasilabs.droidwizardlib.core.viewModels.CoreViewModel;
 
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Created by prasi on 9/5/17.
@@ -45,5 +46,10 @@ public class SimpleFragmentViewModel extends CoreViewModel<SimpleFragmentCallBac
                 }
             }
         });
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 }

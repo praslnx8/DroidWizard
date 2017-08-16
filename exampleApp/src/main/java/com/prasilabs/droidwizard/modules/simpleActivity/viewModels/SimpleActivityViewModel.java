@@ -8,6 +8,7 @@ import com.prasilabs.droidwizard.modelEngines.QuestionsModelEngine;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
 import com.prasilabs.droidwizard.utils.KeyConstants;
 import com.prasilabs.droidwizard.utils.NetworkManager;
+import com.prasilabs.droidwizardlib.core.modelEngines.CoreModelEngine;
 import com.prasilabs.droidwizardlib.core.viewModels.CoreViewModel;
 
 import java.util.List;
@@ -18,18 +19,6 @@ import java.util.List;
 
 public class SimpleActivityViewModel extends CoreViewModel<SimpleActivityCallBack>
 {
-    @Override
-    protected void onCreateCalled() {
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(KeyConstants.NETWORK_BROADCAST_KEY);
-        registerReciever(intentFilter);
-    }
-
-    @Override
-    protected void broadCastRecieved(Context context, Intent intent) {
-
-    }
-
     public void getQuestions()
     {
         if(getCoreCallBack() != null)
@@ -67,5 +56,15 @@ public class SimpleActivityViewModel extends CoreViewModel<SimpleActivityCallBac
             }
         }
 
+    }
+
+    @Override
+    protected void onCreateCalled() {
+
+    }
+
+    @Override
+    protected void modelEngineUpdated(CoreModelEngine modelEngine, Object data) {
+        //update view based on model change.
     }
 }

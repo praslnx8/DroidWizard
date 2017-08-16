@@ -12,9 +12,13 @@ import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.prasilabs.droidwizardlib.core.CoreApp;
+import com.prasilabs.droidwizardlib.core.modelEngines.CoreModelEngine;
 import com.prasilabs.droidwizardlib.core.views.CoreActivityView;
 import com.prasilabs.droidwizardlib.core.views.CoreFragmentView;
 import com.prasilabs.droidwizardlib.debug.ConsoleLog;
+
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Base presenter class
@@ -28,10 +32,9 @@ import com.prasilabs.droidwizardlib.debug.ConsoleLog;
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
  */
-public abstract class CoreViewModel<T extends CoreCallBack>
+public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
 {
     private static final String TAG = CoreViewModel.class.getSimpleName();
-    private BroadcastReceiver broadcastReceiver;
     private Context context;
     private T coreCallBack;
 
@@ -53,14 +56,6 @@ public abstract class CoreViewModel<T extends CoreCallBack>
     public void onCreate(Context context)
     {
         this.context = context;
-        broadcastReceiver = new BroadcastReceiver()
-        {
-            @Override
-            public void onReceive(Context context, Intent intent)
-            {
-                broadCastRecieved(context, intent);
-            }
-        };
 
         onCreateCalled();
     }
@@ -70,39 +65,19 @@ public abstract class CoreViewModel<T extends CoreCallBack>
      */
     protected abstract void onCreateCalled();
 
-    /**
-     * Registering the intents for listening to data change broadcast
-     * @param intentFilter intent filter {@link IntentFilter}
-     */
-    protected void registerReciever(IntentFilter intentFilter)
-    {
-        if(CoreApp.getAppContext() != null)
-        {
-            LocalBroadcastManager.getInstance(CoreApp.getAppContext()).registerReceiver(broadcastReceiver, intentFilter);
-        }
-        else
-        {
-            ConsoleLog.w(TAG, "context is null :( core app");
-        }
-    }
 
     /**
-     * Abstract method that will be triggered if any registered broadcast arrived
-     * @param context broadcast context
-     * @param intent broadcast intent message
+     * Abstract method that will be triggered if any registered broadcast arrived.
+     * @param modelEngine Updated model engine.
+     * @param data updated data/message if any.
      */
-    protected abstract void broadCastRecieved(Context context, Intent intent);
+    protected abstract void modelEngineUpdated(CoreModelEngine modelEngine, Object data);
 
     /**
      * onDestroy() lifecycle. The broadcast will be killed at this point
      */
     public void onDestroy()
     {
-        if(broadcastReceiver != null)
-        {
-            LocalBroadcastManager.getInstance(CoreApp.getAppContext()).unregisterReceiver(broadcastReceiver);
-        }
-
         coreCallBack = null;
     }
 
@@ -128,5 +103,12 @@ public abstract class CoreViewModel<T extends CoreCallBack>
      */
     public void setCoreCallBack(T t) {
         this.coreCallBack = t;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if(o instanceof CoreModelEngine) {
+            modelEngineUpdated((CoreModelEngine) o, arg);
+        }
     }
 }
