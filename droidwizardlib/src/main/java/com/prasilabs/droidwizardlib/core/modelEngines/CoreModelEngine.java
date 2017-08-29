@@ -36,8 +36,8 @@ public abstract class CoreModelEngine extends Observable
     protected CoreModelEngine(){}
 
     /**
-     * This method will help to send broadcast to presenters that listens fot the data change.
-     * Data changes is handled in model engine and if so will be notified to respective active presenters with help
+     * This method will help to send broadcast to view models that listens fot the data change.
+     * Data changes is handled in model engine and if so will be notified to respective active view model with help
      * of broadcast
      * @param intent the broadcast intent with data change message
      */

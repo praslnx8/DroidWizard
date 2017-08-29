@@ -15,13 +15,13 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Base presenter class
+ * Base view model class
  * Presenter is coupled with view and attched to lifecycle of views {@link android.app.Activity}, {@link android.support.v4.app.Fragment}
  *
- * presenter talks to modelEngine {@link com.prasilabs.droidwizardlib.core.modelEngines.CoreModelEngine} to get the
+ * view model talks to modelEngine {@link com.prasilabs.droidwizardlib.core.modelEngines.CoreModelEngine} to get the
  * data and based on the data it will ask the view to do the work
  *
- * Views are actually dumb. their only job is to present the data in a nice way. A presenter will have the logic to
+ * Views are actually dumb. their only job is to present the data in a nice way. A view model will have the logic to
  * decide what the view should do for the type of data that it received
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
@@ -38,7 +38,7 @@ public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
     }
 
     /**
-     * onCreate() lifecycle of presenter. attached to views like
+     * onCreate() lifecycle of view model. attached to views like
      * {@link CoreFragmentView}, {@link CoreActivityView}
      *
      * Broadcast will be register in the onCreate() and destroyed at onDestroy()
@@ -54,7 +54,7 @@ public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
     }
 
     /**
-     * Oncreate() method for the extended presenters
+     * Oncreate() method for the extended view model
      */
     protected abstract void onCreateCalled();
 
@@ -84,7 +84,7 @@ public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
     }
 
     /**
-     * Method for getting the presenter callback to communicate back to view
+     * Method for getting the view model callback to communicate back to view
      * @return return {@link CoreCallBack}
      */
     public T getCoreCallBack() {
@@ -92,7 +92,7 @@ public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
     }
 
     /**
-     * for registering the presenters callback interface
+     * for registering the view model callback interface
      * @param t callback interface
      */
     public void setCoreCallBack(T t) {

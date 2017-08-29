@@ -15,19 +15,19 @@ import com.prasilabs.droidwizardlib.core.viewModels.CoreViewModel;
 
 /**
  * Base Activity class
- * CoreActivityView is the base class of activity with support for binding presenters and callback
+ * CoreActivityView is the base class of activity with support for binding view model and callback
  *
- * T is the presenter that is being attached to activity
+ * T is the view model that is being attached to activity
  *
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
  */
 public abstract class CoreActivityView<T extends CoreViewModel> extends AppCompatActivity
 {
-    private T corePresenter;
+    private T coreViewModel;
 
     /**
-     * onCreate() method where presenter onCreate() will be binded to Activity
+     * onCreate() method where view model onCreate() will be binded to Activity
      * and callback will be attached
      * @param savedInstanceState from the activity
      */
@@ -35,21 +35,21 @@ public abstract class CoreActivityView<T extends CoreViewModel> extends AppCompa
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        corePresenter = setCorePresenter();
-        if(corePresenter != null)
+        coreViewModel = setCoreViewModel();
+        if(coreViewModel != null)
         {
-            corePresenter.onCreate(this);
-            corePresenter.setCoreCallBack(getCoreCallBack());
+            coreViewModel.onCreate(this);
+            coreViewModel.setCoreCallBack(getCoreCallBack());
         }
     }
 
     /**
-     * abstract method to get the presenter interface
-     * @return presenter interface {@link CoreCallBack}
+     * abstract method to get the view model interface
+     * @return view model interface {@link CoreCallBack}
      */
     protected abstract CoreCallBack getCoreCallBack();
 
-    protected abstract T setCorePresenter();
+    protected abstract T setCoreViewModel();
 
     /**
      * abstract method for registering layouts
@@ -62,21 +62,21 @@ public abstract class CoreActivityView<T extends CoreViewModel> extends AppCompa
     }
 
     /**
-     * onDestroy() lifecylce presenter will be detached
+     * onDestroy() lifecycle view model will be detached
      */
     @Override
     protected void onDestroy()
     {
         super.onDestroy();
-        if(corePresenter != null)
+        if(coreViewModel != null)
         {
-            corePresenter.onDestroy();
+            coreViewModel.onDestroy();
         }
-        corePresenter = null;
+        coreViewModel = null;
     }
 
     protected T getPresenter()
     {
-        return corePresenter;
+        return coreViewModel;
     }
 }

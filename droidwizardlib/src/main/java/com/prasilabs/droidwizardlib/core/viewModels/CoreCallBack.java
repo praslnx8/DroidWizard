@@ -7,7 +7,7 @@
 package com.prasilabs.droidwizardlib.core.viewModels;
 
 
-/**Base interface for presenter to communicate back to view
+/**Base interface for view model to communicate back to view
  * @author Prasanna Anbazhagan <praslnx8@gmail.com>
  * @version 1.0
  */

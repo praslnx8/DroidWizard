@@ -50,7 +50,7 @@ public class SimpleActivityView extends CoreActivityView<SimpleActivityViewModel
     }
 
     @Override
-    protected SimpleActivityViewModel setCorePresenter() {
+    protected SimpleActivityViewModel setCoreViewModel() {
         return new SimpleActivityViewModel();
     }
 

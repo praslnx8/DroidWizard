@@ -21,7 +21,7 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
     private View mFragmentView;
     private Context context;
     private CoreActivityView coreActivityView;
-    private T corePresenter;
+    private T coreViewModel;
 
 
     public View getFragmentView()
@@ -41,7 +41,7 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
     {
         super.onCreate(savedInstanceState);
 
-        corePresenter = setCorePresenter();
+        coreViewModel = setCorePresenter();
     }
 
 
@@ -53,9 +53,9 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
             setFragmentView(inflater.inflate(getLayout(), container, false));
         }
 
-        if (corePresenter != null) {
-            corePresenter.onCreate(context);
-            corePresenter.setCoreCallBack(getCoreCallBack());
+        if (coreViewModel != null) {
+            coreViewModel.onCreate(context);
+            coreViewModel.setCoreCallBack(getCoreCallBack());
         }
 
 
@@ -79,15 +79,15 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
     public void onDestroyView() {
         super.onDestroyView();
 
-        if (corePresenter != null) {
-            corePresenter.onDestroy();
+        if (coreViewModel != null) {
+            coreViewModel.onDestroy();
         }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        corePresenter = null;
+        coreViewModel = null;
     }
 
     public CoreActivityView getCoreActivityView()
@@ -135,9 +135,9 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
         return context;
     }
 
-    protected T  getPresenter()
+    protected T getCoreViewModel()
     {
-        return corePresenter;
+        return coreViewModel;
     }
 
 
