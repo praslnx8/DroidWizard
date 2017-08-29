@@ -46,5 +46,6 @@ dependencies {
 	compile 'com.github.praslnx8:DroidWizard:0.5'
 }
 ```
+Check us at [![Medium]](https://jitpack.io/#praslnx8/DroidWizard)
 
 **Enjoy!**
