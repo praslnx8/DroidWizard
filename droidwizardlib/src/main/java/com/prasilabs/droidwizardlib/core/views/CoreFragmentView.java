@@ -34,14 +34,14 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
         this.mFragmentView = fragmentView;
     }
 
-    protected abstract T setCorePresenter();
+    protected abstract T setViewModel();
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
 
-        coreViewModel = setCorePresenter();
+        coreViewModel = setViewModel();
     }
 
 
@@ -135,7 +135,7 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
         return context;
     }
 
-    protected T getCoreViewModel()
+    protected T getViewModel()
     {
         return coreViewModel;
     }

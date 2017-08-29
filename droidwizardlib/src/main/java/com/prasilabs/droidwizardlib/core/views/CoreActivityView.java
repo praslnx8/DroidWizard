@@ -75,7 +75,7 @@ public abstract class CoreActivityView<T extends CoreViewModel> extends AppCompa
         coreViewModel = null;
     }
 
-    protected T getPresenter()
+    protected T getViewModel()
     {
         return coreViewModel;
     }

@@ -41,7 +41,7 @@ public class SimpleActivityView extends CoreActivityView<SimpleActivityViewModel
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(questionsAdapter);
 
-        getPresenter().getQuestions();
+        getViewModel().getQuestions();
     }
 
     @Override

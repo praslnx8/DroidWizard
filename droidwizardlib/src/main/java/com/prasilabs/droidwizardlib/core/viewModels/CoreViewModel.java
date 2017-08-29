@@ -16,7 +16,8 @@ import java.util.Observer;
 
 /**
  * Base view model class
- * Presenter is coupled with view and attched to lifecycle of views {@link android.app.Activity}, {@link android.support.v4.app.Fragment}
+ * View model is coupled with view and attached to lifecycle of views {@link android.app.Activity},
+ * {@link android.support.v4.app.Fragment}
  *
  * view model talks to modelEngine {@link com.prasilabs.droidwizardlib.core.modelEngines.CoreModelEngine} to get the
  * data and based on the data it will ask the view to do the work
