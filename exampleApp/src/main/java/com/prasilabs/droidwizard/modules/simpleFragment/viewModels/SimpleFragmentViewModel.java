@@ -1,20 +1,15 @@
 package com.prasilabs.droidwizard.modules.simpleFragment.viewModels;
 
-import android.content.Context;
-import android.content.Intent;
-
 import com.prasilabs.droidwizard.modelEngines.QuestionsModelEngine;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
 import com.prasilabs.droidwizardlib.core.modelEngines.CoreModelEngine;
 import com.prasilabs.droidwizardlib.core.viewModels.CoreViewModel;
 
 import java.util.List;
-import java.util.Observable;
 
 /**
  * Created by prasi on 9/5/17.
  */
-
 public class SimpleFragmentViewModel extends CoreViewModel<SimpleFragmentCallBack>
 {
 

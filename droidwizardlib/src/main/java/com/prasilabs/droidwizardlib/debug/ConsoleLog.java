@@ -3,8 +3,6 @@ package com.prasilabs.droidwizardlib.debug;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.prasilabs.droidwizardlib.core.CoreApp;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.logging.Logger;

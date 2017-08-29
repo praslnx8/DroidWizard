@@ -55,9 +55,9 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
 
         if (corePresenter != null) {
             corePresenter.onCreate(context);
+            corePresenter.setCoreCallBack(getCoreCallBack());
         }
 
-        corePresenter.setCoreCallBack(getCoreCallBack());
 
         return getFragmentView();
     }

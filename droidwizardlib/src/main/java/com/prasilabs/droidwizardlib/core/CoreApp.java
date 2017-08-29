@@ -7,9 +7,7 @@ package com.prasilabs.droidwizardlib.core;
 
 import android.app.Application;
 import android.content.Context;
-import android.provider.Settings;
 
-import com.prasilabs.droidwizardlib.BuildConfig;
 
 /**
  * Starting point of app. Application context

@@ -14,7 +14,7 @@ import java.io.InputStream;
 
 public class JsonUtil {
 
-    private static final String TAG = JsonUtil.class.getSimpleName();
+    private JsonUtil(){}
 
     public static JSONObject createjsonobject(String jsonObjectString) {
         try

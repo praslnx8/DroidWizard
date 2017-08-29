@@ -5,17 +5,11 @@
  */
 package com.prasilabs.droidwizardlib.core.viewModels;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.support.v4.content.LocalBroadcastManager;
 
-import com.prasilabs.droidwizardlib.core.CoreApp;
 import com.prasilabs.droidwizardlib.core.modelEngines.CoreModelEngine;
 import com.prasilabs.droidwizardlib.core.views.CoreActivityView;
 import com.prasilabs.droidwizardlib.core.views.CoreFragmentView;
-import com.prasilabs.droidwizardlib.debug.ConsoleLog;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -34,7 +28,6 @@ import java.util.Observer;
  */
 public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
 {
-    private static final String TAG = CoreViewModel.class.getSimpleName();
     private Context context;
     private T coreCallBack;
 

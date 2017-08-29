@@ -18,6 +18,8 @@ import java.util.List;
  */
 public class FragmentNavigator
 {
+    private FragmentNavigator(){}
+
     public static void navigateToFragment(CoreActivityView coreActivityView, CoreFragmentView coreFragmentView, boolean addToBackStack, int viewId) {
         navigateToFragment(coreActivityView, coreFragmentView, addToBackStack, viewId, false, false);
     }
