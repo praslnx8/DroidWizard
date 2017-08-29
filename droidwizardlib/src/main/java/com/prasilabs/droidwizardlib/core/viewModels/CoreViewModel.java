@@ -67,7 +67,8 @@ public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
 
 
     /**
-     * Abstract method that will be triggered if any registered broadcast arrived.
+     * Abstract method that will be triggered if any observer data arrived.
+     *
      * @param modelEngine Updated model engine.
      * @param data updated data/message if any.
      */
@@ -106,7 +107,7 @@ public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public final void update(Observable o, Object arg) {
         if(o instanceof CoreModelEngine) {
             modelEngineUpdated((CoreModelEngine) o, arg);
         }

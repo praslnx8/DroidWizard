@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.prasilabs.droidwizard.modelEngines.QuestionsModelEngine;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
+import com.prasilabs.droidwizardlib.core.modelEngines.CoreModelEngine;
 import com.prasilabs.droidwizardlib.core.viewModels.CoreViewModel;
 
 import java.util.List;
@@ -23,8 +24,13 @@ public class SimpleFragmentViewModel extends CoreViewModel<SimpleFragmentCallBac
     }
 
     @Override
-    protected void broadCastRecieved(Context context, Intent intent) {
+    protected void modelEngineUpdated(CoreModelEngine modelEngine, Object data) {
+        if(modelEngine instanceof QuestionsModelEngine) {
 
+            if(data instanceof QuestionsPojo) {
+                //Do update the view if...
+            }
+        }
     }
 
     public void getQuestions()
@@ -46,10 +52,5 @@ public class SimpleFragmentViewModel extends CoreViewModel<SimpleFragmentCallBac
                 }
             }
         });
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-
     }
 }
