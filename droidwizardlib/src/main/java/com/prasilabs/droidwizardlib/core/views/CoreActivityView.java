@@ -39,7 +39,7 @@ public abstract class CoreActivityView<T extends CoreViewModel> extends AppCompa
         if(coreViewModel != null)
         {
             coreViewModel.onCreate(this);
-            coreViewModel.setCoreCallBack(getCoreCallBack());
+            coreViewModel.setVMCallBack(getCoreCallBack());
         }
     }
 

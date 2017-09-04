@@ -36,13 +36,13 @@ public class SimpleFragmentViewModel extends CoreViewModel<SimpleFragmentCallBac
             {
                 if(questions != null && !questions.isEmpty())
                 {
-                    if(getCoreCallBack() != null)
+                    if(getVMCallBack() != null)
                     {
-                        getCoreCallBack().showQuestions(questions);
+                        getVMCallBack().showQuestions(questions);
                     }
                     else
                     {
-                        getCoreCallBack().showEmpty();
+                        getVMCallBack().showEmpty();
                     }
                 }
             }

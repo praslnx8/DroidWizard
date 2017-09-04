@@ -23,6 +23,8 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
     private CoreActivityView coreActivityView;
     private T coreViewModel;
 
+    private boolean isViewDestroyed;
+
 
     public View getFragmentView()
     {
@@ -55,7 +57,7 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
 
         if (coreViewModel != null) {
             coreViewModel.onCreate(context);
-            coreViewModel.setCoreCallBack(getCoreCallBack());
+            coreViewModel.setVMCallBack(getCoreCallBack());
         }
 
 
@@ -66,6 +68,7 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        isViewDestroyed = false;
         initializeView(savedInstanceState);
     }
 
@@ -82,6 +85,8 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
         if (coreViewModel != null) {
             coreViewModel.onDestroy();
         }
+
+        isViewDestroyed = true;
     }
 
     @Override
@@ -112,12 +117,6 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
@@ -140,10 +139,12 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
         return coreViewModel;
     }
 
-
-
     public boolean onBackPressed()
     {
         return true;
+    }
+
+    public boolean isViewDestroyed() {
+        return isViewDestroyed;
     }
 }

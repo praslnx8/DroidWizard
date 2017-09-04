@@ -1,12 +1,7 @@
 package com.prasilabs.droidwizard.modules.simpleActivity.viewModels;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-
 import com.prasilabs.droidwizard.modelEngines.QuestionsModelEngine;
 import com.prasilabs.droidwizard.pojos.QuestionsPojo;
-import com.prasilabs.droidwizard.utils.KeyConstants;
 import com.prasilabs.droidwizard.utils.NetworkManager;
 import com.prasilabs.droidwizardlib.core.modelEngines.CoreModelEngine;
 import com.prasilabs.droidwizardlib.core.viewModels.CoreViewModel;
@@ -21,9 +16,9 @@ public class SimpleActivityViewModel extends CoreViewModel<SimpleActivityCallBac
 {
     public void getQuestions()
     {
-        if(getCoreCallBack() != null)
+        if(getVMCallBack() != null)
         {
-            getCoreCallBack().showProgress();
+            getVMCallBack().showProgress();
         }
         if(NetworkManager.isConnected(getContext()))
         {
@@ -33,16 +28,16 @@ public class SimpleActivityViewModel extends CoreViewModel<SimpleActivityCallBac
                 {
                     if(questions != null && !questions.isEmpty())
                     {
-                        if(getCoreCallBack() != null)
+                        if(getVMCallBack() != null)
                         {
-                            getCoreCallBack().showQuestions(questions);
+                            getVMCallBack().showQuestions(questions);
                         }
                     }
                     else
                     {
-                        if(getCoreCallBack() != null)
+                        if(getVMCallBack() != null)
                         {
-                            getCoreCallBack().showEmpty();
+                            getVMCallBack().showEmpty();
                         }
                     }
                 }
@@ -50,9 +45,9 @@ public class SimpleActivityViewModel extends CoreViewModel<SimpleActivityCallBac
         }
         else
         {
-            if(getCoreCallBack() != null)
+            if(getVMCallBack() != null)
             {
-                getCoreCallBack().showNoInternet();
+                getVMCallBack().showNoInternet();
             }
         }
 
