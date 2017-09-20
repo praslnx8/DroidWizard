@@ -30,7 +30,7 @@ import java.util.Observer;
 public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
 {
     private Context context;
-    private T coreCallBack;
+    private T vmCallBAck;
 
     /**
      * Public default constructor
@@ -73,7 +73,7 @@ public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
      */
     public void onDestroy()
     {
-        coreCallBack = null;
+        vmCallBAck = null;
     }
 
     /**
@@ -88,16 +88,16 @@ public abstract class CoreViewModel<T extends CoreCallBack> implements Observer
      * Method for getting the view model callback to communicate back to view
      * @return return {@link CoreCallBack}
      */
-    public T getCoreCallBack() {
-        return coreCallBack;
+    public T getVMCallBack() {
+        return vmCallBAck;
     }
 
     /**
      * for registering the view model callback interface
      * @param t callback interface
      */
-    public void setCoreCallBack(T t) {
-        this.coreCallBack = t;
+    public void setVMCallBack(T t) {
+        this.vmCallBAck = t;
     }
 
     @Override
