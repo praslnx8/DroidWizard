@@ -22,6 +22,7 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
     private Context context;
     private CoreActivityView coreActivityView;
     private T coreViewModel;
+    private boolean isViewCreatedFresh;
 
 
     public View getFragmentView()
@@ -51,6 +52,9 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
     {
         if (getFragmentView() == null) {
             setFragmentView(inflater.inflate(getLayout(), container, false));
+            isViewCreatedFresh = true;
+        } else {
+            isViewCreatedFresh = false;
         }
 
         if (coreViewModel != null) {
@@ -66,10 +70,10 @@ public abstract class CoreFragmentView<T extends CoreViewModel> extends Fragment
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        initializeView(savedInstanceState);
+        initializeView(savedInstanceState, isViewCreatedFresh);
     }
 
-    protected abstract void initializeView(Bundle savedInstanceState);
+    protected abstract void initializeView(Bundle savedInstanceState, boolean isViewCreatedFresh);
 
     protected abstract int getLayout();
 

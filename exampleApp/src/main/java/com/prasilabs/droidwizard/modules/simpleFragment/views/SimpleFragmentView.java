@@ -33,16 +33,16 @@ public class SimpleFragmentView extends CoreFragmentView<SimpleFragmentViewModel
     }
 
     @Override
-    protected void initializeView(Bundle savedInstanceState)
+    protected void initializeView(Bundle savedInstanceState, boolean isViewCreatedFresh)
     {
-        emptyLayout = (LinearLayout) getFragmentView().findViewById(R.id.empty_layout);
-        recyclerView = (RecyclerView) getFragmentView().findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(questionsAdapter);
+        if(isViewCreatedFresh) {
+            emptyLayout = (LinearLayout) getFragmentView().findViewById(R.id.empty_layout);
+            recyclerView = (RecyclerView) getFragmentView().findViewById(R.id.recycler_view);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(questionsAdapter);
 
-        getViewModel().getQuestions();
-
-        getViewModel().getQuestions();
+            getViewModel().getQuestions();
+        }
     }
 
     @Override
